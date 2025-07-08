@@ -616,6 +616,7 @@ export enum OCRStrategy {
   CUSTOM_OCR = 'custom_ocr',
   AZURE_MISTRAL_OCR = 'azure_mistral_ocr',
   VERTEXAI_MISTRAL_OCR = 'vertexai_mistral_ocr',
+  DOCLING_OCR = 'docling_ocr',
 }
 
 export enum SearchCategories {
@@ -669,6 +670,17 @@ export const ocrSchema = z.object({
   strategy: z.nativeEnum(OCRStrategy).default(OCRStrategy.MISTRAL_OCR),
 });
 
+export const doclingOcrSchema = z.object({
+  apiKey: z.string().default('${DOCLING_API_KEY}'),
+  baseURL: z.string().optional().default('https://docling.amendllc.com'),
+  syncThresholdMB: z.number().optional().default(5),
+  do_ocr: z.boolean().optional().default(true),
+  force_ocr: z.boolean().optional().default(false),
+  ocr_engine: z.string().optional().default('easyocr'),
+  ocr_lang: z.string().optional().default('en'),
+  output_format: z.string().optional().default('md'),
+});
+
 export const balanceSchema = z.object({
   enabled: z.boolean().optional().default(false),
   startBalance: z.number().optional().default(20000),
@@ -708,6 +720,7 @@ export const configSchema = z.object({
   version: z.string(),
   cache: z.boolean().default(true),
   ocr: ocrSchema.optional(),
+  doclingOcr: doclingOcrSchema.optional(),
   webSearch: webSearchSchema.optional(),
   memory: memorySchema.optional(),
   secureImageLinks: z.boolean().optional(),
@@ -764,6 +777,8 @@ export const configSchema = z.object({
 export const getConfigDefaults = () => getSchemaDefaults(configSchema);
 
 export type TCustomConfig = z.infer<typeof configSchema>;
+
+export type TDoclingOcrConfig = z.infer<typeof doclingOcrSchema>;
 
 export type TProviderSchema =
   | z.infer<typeof ttsOpenaiSchema>
