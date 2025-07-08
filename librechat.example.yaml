@@ -311,6 +311,26 @@ endpoints:
 # # See the Custom Configuration Guide for more information on Assistants Config:
 # # https://www.librechat.ai/docs/configuration/librechat_yaml/object_structure/assistants_endpoint
 
+# OCR Strategy Configuration
+# More info: https://www.librechat.ai/docs/configuration/ocr
+# ocr:
+#   strategy: "docling_ocr"  # Options: mistral_ocr, custom_ocr, azure_mistral_ocr, vertexai_mistral_ocr, docling_ocr
+#   mistralModel: "pixtral-12b-2409"
+#   apiKey: "${OCR_API_KEY}"
+#   baseURL: "${OCR_BASEURL}"
+
+# Docling OCR Configuration
+# More info: https://www.librechat.ai/docs/configuration/docling_ocr
+# doclingOcr:
+#   apiKey: "${DOCLING_API_KEY}"
+#   baseURL: "${DOCLING_BASE_URL}"
+#   syncThresholdMB: 5
+#   do_ocr: true
+#   force_ocr: false
+#   ocr_engine: "easyocr"
+#   ocr_lang: "en"
+#   output_format: "md"
+
 # Memory configuration for user memories
 # memory:
 #   # (optional) Disable memory functionality
