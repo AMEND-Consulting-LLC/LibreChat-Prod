@@ -129,24 +129,24 @@ endpoints:
       forcePrompt: true
       modelDisplayLabel: "AMEND AI-Individual"
 
-# ocr:
-#   mistralModel: "${MISTRAL_MODEL}" # should match deployment name on Azure
-#   apiKey: "${OCR_API_KEY}" # arbitrary .env var reference
-#   baseURL: "${OCR_BASEURL}" # hardcoded, can also be .env var reference
-#   strategy: "mistral_ocr"
-
 ocr:
-  strategy: "docling_ocr"
+  mistralModel: "${MISTRAL_MODEL}" # should match deployment name on Azure
+  apiKey: "${OCR_API_KEY}" # arbitrary .env var reference
+  baseURL: "${OCR_BASEURL}" # hardcoded, can also be .env var reference
+  strategy: "mistral_ocr"
 
-doclingOcr:
-  apiKey: "${DOCLING_API_KEY}"
-  baseURL: "${DOCLING_BASE_URL}"
-  syncThresholdMB: 5
-  do_ocr: true
-  force_ocr: false
-  ocr_engine: "easyocr"
-  ocr_lang: "en"
-  output_format: "md"
+# ocr:
+#   strategy: "docling_ocr"
+
+# doclingOcr:
+#   apiKey: "${DOCLING_API_KEY}"
+#   baseURL: "${DOCLING_BASE_URL}"
+#   syncThresholdMB: 5
+#   do_ocr: true
+#   force_ocr: false
+#   ocr_engine: "easyocr"
+#   ocr_lang: "en"
+#   output_format: "md"
 
 mcpServers:
   
@@ -183,9 +183,9 @@ mcpServers:
 
 # Balance settings
 balance:
-  enabled: true                # Enable token credit balances for users
-  startBalance: 5000000          # Initial tokens credited upon registration
-  autoRefillEnabled: true     # Enable automatic token refills
-  refillIntervalValue: 30      # Numerical value for refill interval
-  refillIntervalUnit: "days"   # Time unit for refill interval (days, hours, etc.)
-  refillAmount: 1000000          # Tokens added during each refill
+  # enabled: true                # Enable token credit balances for users
+  # startBalance: 5000000          # Initial tokens credited upon registration
+  # autoRefillEnabled: true     # Enable automatic token refills
+  # refillIntervalValue: 30      # Numerical value for refill interval
+  # refillIntervalUnit: "days"   # Time unit for refill interval (days, hours, etc.)
+  # refillAmount: 1000000          # Tokens added during each refill

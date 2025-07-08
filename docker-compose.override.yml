@@ -22,5 +22,18 @@ services:
     entrypoint: ["echo", "MongoDB service disabled because Atlas is used"]
     command: []
 
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: chat-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+    ports:
+      - "${RAG_PG_PORT}:5432"
+
 # No local Postgres service
 # Removed local postgres service and pgdata volume 
