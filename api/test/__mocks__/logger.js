@@ -38,7 +38,7 @@ jest.mock('winston-daily-rotate-file', () => {
       format: 'format',
     };
   });
-});
+}, { virtual: true });
 
 jest.mock('~/config', () => {
   return {

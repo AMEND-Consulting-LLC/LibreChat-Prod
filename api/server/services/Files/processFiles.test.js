@@ -24,7 +24,11 @@ jest.mock('librechat-data-provider', () => ({
   mergeFileConfig: jest.fn(),
   removeNullishValues: jest.fn((obj) => obj),
   isAssistantsEndpoint: jest.fn(),
-}));
+}), { virtual: true });
+
+jest.mock('@librechat/agents', () => ({
+  EnvVar: {},
+}), { virtual: true });
 
 jest.mock('~/server/services/Files/images', () => ({
   convertImage: jest.fn(),

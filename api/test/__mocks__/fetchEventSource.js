@@ -24,4 +24,4 @@ jest.mock('@waylaidwanderer/fetch-event-source', () => ({
       // Return a Promise that resolves to simulate async behavior
       return Promise.resolve();
     }),
-}));
+}), { virtual: true });
