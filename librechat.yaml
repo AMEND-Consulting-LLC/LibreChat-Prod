@@ -138,19 +138,19 @@ ocr:
 # ocr:
 #   strategy: "docling_ocr"
 
-# doclingOcr:
-#   apiKey: "${DOCLING_API_KEY}"
-#   baseURL: "${DOCLING_BASE_URL}"
-#   syncThresholdMB: 5
-#   do_ocr: true
-#   force_ocr: false
-#   ocr_engine: "easyocr"
-#   ocr_lang: "en"
-#   output_format: "md"
+doclingOcr:
+  apiKey: "${DOCLING_API_KEY}"
+  baseURL: "${DOCLING_BASE_URL}"
+  syncThresholdMB: 5
+  do_ocr: true
+  force_ocr: false
+  ocr_engine: "easyocr"
+  ocr_lang: "en"
+  output_format: "md"
 
 mcpServers:
   
- #Firecrawl MCP Server
+  # Firecrawl MCP Server
   firecrawl:
     command: npx
     args: ["-y", "firecrawl-mcp"]
@@ -159,7 +159,7 @@ mcpServers:
       FIRECRAWL_API_URL: "${FIRECRAWL_API_URL}"
     chatMenu: true  # Only available in agent builder
 
-  #Searxng MCP Server
+  # Searxng MCP Server
   searxngmcp:
     command: npx
     args: ["-y", "mcp-searxng"]
@@ -167,7 +167,7 @@ mcpServers:
       SEARXNG_URL: "${SEARXNG_URL}"
     chatMenu: true  # Only available in agent builder
 
-  #Jina MCP Server
+  # Jina MCP Server
   jina-mcp-tools:
     command: npx
     args: ["jina-mcp-tools"]
@@ -182,7 +182,7 @@ mcpServers:
   #     - https://n8n.amendllc.com/mcp-test/docling
 
 # Balance settings
-balance:
+# balance:
   # enabled: true                # Enable token credit balances for users
   # startBalance: 5000000          # Initial tokens credited upon registration
   # autoRefillEnabled: true     # Enable automatic token refills

@@ -1,6 +1,7 @@
 const {
   FileSources,
   loadOCRConfig,
+  loadDoclingOCRConfig,
   EModelEndpoint,
   loadMemoryConfig,
   getConfigDefaults,
@@ -42,6 +43,7 @@ const AppService = async (app) => {
   const configDefaults = getConfigDefaults();
 
   const ocr = loadOCRConfig(config.ocr);
+  const doclingOcr = loadDoclingOCRConfig(config.doclingOcr);
   const webSearch = loadWebSearchConfig(config.webSearch);
   checkWebSearchConfig(webSearch);
   const memory = loadMemoryConfig(config.memory);
@@ -87,6 +89,7 @@ const AppService = async (app) => {
 
   const defaultLocals = {
     ocr,
+    doclingOcr,
     paths,
     memory,
     webSearch,
