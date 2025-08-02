@@ -209,7 +209,7 @@ mcpServers:
     env:
       FIRECRAWL_API_KEY: "${FIRECRAWL_API_KEY}"
       FIRECRAWL_API_URL: "${FIRECRAWL_API_URL}"
-    chatMenu: true  # Only available in agent builder
+    chatMenu: true 
 
   #Searxng MCP Server
   private-web-searching-searxng:
@@ -217,7 +217,7 @@ mcpServers:
     args: ["-y", "mcp-searxng"]
     env:
       SEARXNG_URL: "${SEARXNG_URL}"
-    chatMenu: true  # Only available in agent builder
+    chatMenu: true  
 
   #Jina MCP Server
   commercial-web-searching-jina:
@@ -225,7 +225,7 @@ mcpServers:
     args: ["jina-mcp-tools"]
     env:
       JINA_API_KEY: "${JINA_API_KEY}"
-    chatMenu: true  # Only available in agent builder
+    chatMenu: true 
 
   platform-feedback:
     type: streamable-http
@@ -235,22 +235,7 @@ mcpServers:
       X-User-Email: "{{LIBRECHAT_USER_EMAIL}}"
       X-LIBRECHAT_USER_OPENIDID: "{{LIBRECHAT_USER_OPENIDID}}"
       X-LIBRECHAT_USER_USERNAME: "{{LIBRECHAT_USER_USERNAME}}"
-    When sending emails:
-      - Make sure you have all the information needed and, if needed, ask for more information
-
-
-  # kantata-tools:
-  #   type: streamable-http
-  #   url: https://ktmcp.amendllc.com/mcp #for production
-  #   #url: http://kantata-mcp.kantata-mcp.orb.local/mcp #for local testing
-  #   headers:
-  #     Authorization: "${KANTATA_MCP_BEARER_TOKEN}"
-  #     x-auth-token: "{{USER_PROVIDED_TOKEN}}"
-  #   customUserVars:
-  #     USER_PROVIDED_TOKEN:
-  #       title: "My Session Id"
-  #       description: "Your Kantata OX session ID after you go through the auth process with Kantata"
-  #   chatMenu: true
+    chatMenu: true
 
   kantata:
     type: "streamable-http"
@@ -278,7 +263,6 @@ mcpServers:
         title: "My Session Id"
         description: "Your Lucid session ID after you go through the auth process with Lucid"
     chatMenu: true
-
 
   #Microsoft Tools
   # microsoft-tools:
